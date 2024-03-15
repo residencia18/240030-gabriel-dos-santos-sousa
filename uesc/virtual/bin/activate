@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/gabriel-dos-sousa/Área de trabalho/uesc/virtual"
+VIRTUAL_ENV="/home/gabriel-dos-sousa/Área de trabalho/240030-gabriel-dos-santos-sousa/uesc/virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
