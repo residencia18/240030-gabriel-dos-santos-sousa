@@ -8,12 +8,34 @@
   </head>
   <body>
     <header>
+      <div>
+        <h1>
+          UNIVERSIDADE ESTADUAL DE SANTA CRUZ
+        </h1>
+        {% load static %}
+        <img src="{% static 'brasao_uesc.png' %}" alt="Brasão da UESC">
+      </div>
     </header>
     <main>
         {%block resultado%}
         {%endblock resultado%}
     </main>
     <footer>
+      <div>
+        <p>
+          UNIVERSIDADE ESTADUAL DE SANTA CRUZ
+        </p>
+        <p>
+          Campus Soane Nazaré de Andrade, Rodovia Jorge Amado, km 16, Bairro Salobrinho. 
+        </p>
+        <p>
+          CEP 45662-900. Ilhéus-Bahia 
+        </p>
+        <p>
+          <a href="http://www.uesc.br/nucleo-web/">Núcleo Web</a>
+        </p>
+        
+      </div>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
