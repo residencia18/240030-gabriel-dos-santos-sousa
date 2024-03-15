@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{%block conteudo%}
+<ul>
+    {%for res in resultado%}
+    <li>
+        <p>
+            {{res.nome}}
+        </p>
+        <a href={{res.link}}>
+            {{res.link}}
+        </a> - 
+        <p>{{res.data}}</p>
+    </li>
+    {%empty%}
+    <li>
+        Não há Resultados Cadastrados
+    </li>
+    {%endfor%}
+
+</ul>
+{%endblock conteudo%}
