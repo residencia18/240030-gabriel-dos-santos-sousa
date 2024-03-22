@@ -1,29 +1,332 @@
 {%extends "base.html"%}
 
-{%block resultado%}
-<div>
-    <p>
-        Resultados
-    </p>
-    <ul>
-        {%for res in resultado%}
-        <li>
-            <p>
-                {{res.nome}}
-            </p>
-            <a href={{res.link}}>
-                {{res.nome}}
-            </a> - 
-            <p>{{res.data}}</p>
-        </li>
-        {%empty%}
-        <li>
-            Não há Resultados Cadastrados
-        </li>
-        {%endfor%}
+{%block header%}
+<div class="d-flex justify-content-between">
+    <h1 class="bg-warning">
+      UNIVERSIDADE ESTADUAL DE SANTA CRUZ
+    </h1>
+    <div class="bg-info">
+      <img src="uesc_app\templates\static\brasao_uesc.png" alt="aaaa">
+    </div>
+</div>
 
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">Menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMainMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            A UESC
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">A História</a></li>
+            <li><a class="dropdown-item" href="#">Localização</a></li>
+            <li><a class="dropdown-item" href="#">Regimento</a></li>
+            <li><a class="dropdown-item" href="#">Estatuto</a></li>
+            <li><a class="dropdown-item" href="#">Portarias</a></li>
+            <li><a class="dropdown-item" href="#">Editais</a></li>
+            <li><a class="dropdown-item" href="#">Resoluções</a></li>
+            <li><a class="dropdown-item" href="#">Caléndario</a></li>
+            <li><a class="dropdown-item" href="#">Galeria de Fotos</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Estrutura Organizacional
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Reitoria</a></li>
+            <li><a class="dropdown-item" href="#">Pró-Reitoria e Procuradoria</a></li>
+            <li><a class="dropdown-item" href="#">Conselhos</a></li>
+            <li><a class="dropdown-item" href="#">Acessorias</a></li>
+            <li><a class="dropdown-item" href="#">Departamentos</a></li>
+            <li><a class="dropdown-item" href="#">Colegiados</a></li>
+            <li><a class="dropdown-item" href="#">Comitês e Comissões</a></li>
+            <li><a class="dropdown-item" href="#">Coleções Científicas</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Serviços
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Auditorios</a></li>
+            <li><a class="dropdown-item" href="#">Biblioteca</a></li>
+            <li><a class="dropdown-item" href="#">Licitações</a></li>
+            <li><a class="dropdown-item" href="#">Pav. Max de Menezes</a></li>
+            <li><a class="dropdown-item" href="#">Portal Acadêmico</a></li>
+            <li><a class="dropdown-item" href="#">Protocolo Digital</a></li>
+            <li><a class="dropdown-item" href="#">Peticionamento Eletrônico do SEI</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Destaques
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Entrevistas</a></li>
+            <li><a class="dropdown-item" href="#">Jornal UESC</a></li>
+            <li><a class="dropdown-item" href="#">Eventos</a></li>
+            <li><a class="dropdown-item" href="#">Notícias</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Graduação</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pós-Graduação</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Extensão</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Servidores
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Avaliação Funcional</a></li>
+            <li><a class="dropdown-item" href="#">Comprasnet.Ba</a></li>
+            <li><a class="dropdown-item" href="#">RH Bahia</a></li>
+            <li><a class="dropdown-item" href="#">Portal Sei Bahia</a></li>
+            <li><a class="dropdown-item" href="#">Uescoop</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Fale Conosco</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Centros e Greupos de Pesquisa</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">Internacional</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">Laboratorios</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">Mapa da UESC</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">Núcleos</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">Projetos</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">Protocolo Digital</a>
+  </li>
+</ul>
+{%endblock header%}
+
+{%block menu%}
+<div class="card">
+  <div class="card-body">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">TV UESC</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">Radio UESC</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PROCESSOS SELETIVOS</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">CONCURSOS E SELEÇÕES SERVIDOR</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">EAD</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PROGRAD</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PORTAL ACADÊMICO</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">BIBLIOTECA</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PROEX</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PROPP</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PROAD</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PROAPE</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">EDITORA EDITUS</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">PORTAL DE PERIÓDICOS ELETRÔNICOS</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">CEP-UESC</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">CPA-UESC</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">OUVIDORIA/SIC</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">BROTO</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-dark">NIP</button>
+      </li>
     </ul>
+  </div>
+</div>
+
+  
+{%endblock menu%}
+
+
+
+{%block resultado%}
+<div class="card">
+    <div class="card-header">
+        <strong>Resultados</strong>
+    </div>
+
+    <div class="card-body">
+        <ul class="resultado-list">
+            {% for res in resultado %}
+            <li {% if forloop.counter > 5 %}class="hidden"{% endif %}>
+                <p>
+                    <strong>{{ res.nome }}</strong>
+                </p>
+                <p>
+                    <a href="{{ res.link }}">
+                        {{ res.titulo }}
+                    </a>
+                    - {{ res.data }}
+                </p>
+                <p>
+                  {{res.obs}}
+                </p>
+            </li>
+            {% empty %}
+            <li>
+                Não há Resultados Cadastrados
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-end">
+            <button id="show-more-btn" class="btn btn-primary">Mostrar Mais</button>
+        </div>
+    </div>
 </div>
 {%endblock resultado%}
+
+
+{%block cursos%}
+<div class="card">
+    <div class="card-header">
+        <strong>Cursos e Eventos</strong> 
+    </div>
+
+    <div class="card-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae reiciendis nesciunt quisquam expedita est quas numquam ipsa placeat cumque eos? Illo explicabo nam sunt nostrum et tempore reiciendis porro illum.</p>
+    </div>
+</div>
+{%endblock cursos%}
+
+{%block noticias%}
+<div class="card">
+    <div class="card-header">
+        Noticias
+    </div>
+
+    <div class="card-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae reiciendis nesciunt quisquam expedita est quas numquam ipsa placeat cumque eos? Illo explicabo nam sunt nostrum et tempore reiciendis porro illum.</p>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-end">
+            <button id="show-more-btn" class="btn btn-primary">Mostrar Mais</button>
+        </div>
+    </div>
+</div>
+{%endblock noticias%}
+
+{%block mural%}
+<div class="card">
+    <div class="card-header">
+      <strong>Mural</strong>
+    </div>
+
+    <div class="card-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae reiciendis nesciunt quisquam expedita est quas numquam ipsa placeat cumque eos? Illo explicabo nam sunt nostrum et tempore reiciendis porro illum.</p>
+    </div>
+</div>
+{%endblock mural%}
+
+
+{%block editais%}
+<div class="card">
+    <div class="card-header">
+        <strong>Editais</strong>
+    </div>
+
+    <div class="card-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae reiciendis nesciunt quisquam expedita est quas numquam ipsa placeat cumque eos? Illo explicabo nam sunt nostrum et tempore reiciendis porro illum.</p>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-end">
+            <button id="show-more-btn" class="btn btn-primary">Mostrar Mais</button>
+        </div>
+    </div>
+</div>
+{%endblock editais%}
+
+
+
+
+{%block footer%}
+<div class="text-center">
+  <p>
+    Site Não Oficial desenvolvido por Gabriel dos Santos Sousa
+  </p>
+  <p>
+    UNIVERSIDADE ESTADUAL DE SANTA CRUZ
+  </p>
+  <p>
+    Campus Soane Nazaré de Andrade, Rodovia Jorge Amado, km 16, Bairro Salobrinho. 
+  </p>
+  <p>
+    CEP 45662-900. Ilhéus-Bahia 
+  </p>
+  <p>
+    <a href="http://www.uesc.br/nucleo-web/">Núcleo Web</a>
+  </p>
+</div>
+{%endblock footer%}
 
 
