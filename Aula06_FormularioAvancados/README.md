@@ -1,7 +1,7 @@
-# CicloDeVida
+# AdvancedForms
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
-Desenvolvido como material de apoio pelo professor Jorge Lima
+Projeto criado como material de apoio pelo professor Jorge Lima
 
 ## Development server
 
